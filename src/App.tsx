@@ -714,61 +714,14 @@ function Testimonials() {
 
 /* ─── Pricing ─── */
 function Pricing() {
-  const plans = [
-    {
-      name: 'Essencial',
-      price: '47',
-      originalPrice: '97',
-      desc: 'O guia completo para transformar o sono do seu bebê.',
-      features: [
-        'E-book completo (180+ páginas)',
-        'Rotinas por faixa etária',
-        'Métodos gentis de adormecimento',
-        'Soluções para despertares noturnos',
-        'Checklist de ambiente ideal',
-        'Garantia de 7 dias',
-      ],
-      excluded: [
-        'Grupo de apoio exclusivo',
-        'Checklist impresso em PDF',
-        'Consultoria de acompanhamento',
-      ],
-      popular: false,
-    },
-    {
-      name: 'Completo',
-      price: '67',
-      originalPrice: '147',
-      desc: 'O guia + bônus exclusivos para resultados ainda mais rápidos.',
-      features: [
-        'Tudo do plano Essencial',
-        'Grupo de apoio exclusivo',
-        'Checklist impresso em PDF',
-        'Guia de regressões de sono',
-        'Guia de alimentação e sono',
-        'Garantia de 15 dias',
-      ],
-      excluded: [
-        'Consultoria de acompanhamento',
-      ],
-      popular: true,
-    },
-    {
-      name: 'Premium',
-      price: '97',
-      originalPrice: '247',
-      desc: 'A experiência completa com suporte personalizado de especialistas.',
-      features: [
-        'Tudo do plano Completo',
-        '1 consultoria individual (30min)',
-        'Plano personalizado de sono',
-        'Acompanhamento por 30 dias',
-        'Acesso vitalício ao grupo VIP',
-        'Garantia de 30 dias',
-      ],
-      excluded: [],
-      popular: false,
-    },
+  const features = [
+    'E-book completo',
+    'Rotinas por faixa etária',
+    'Métodos gentis de adormecimento',
+    'Soluções para despertares noturnos',
+    'Checklist do ambiente ideal',
+    'Diário do Sono para impressão',
+    'Garantia de 7 dias',
   ];
 
   return (
@@ -783,99 +736,77 @@ function Pricing() {
               Invista no sono da sua família
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
-              Escolha o plano <span className="text-gradient italic">ideal</span> para você
+              Tudo que você precisa em <span className="text-gradient italic">um único guia</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Todos os planos incluem o e-book completo. Comece hoje e veja resultados em até 7 dias.
+              Comece hoje e veja resultados em até 7 dias. Pagamento único e acesso imediato.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, i) => (
-            <Reveal key={i} stagger={i + 1}>
-              <div
-                className={`card-hover relative rounded-2xl p-8 h-full flex flex-col transition-all ${
-                  plan.popular
-                    ? 'bg-gradient-to-br from-lavender-600 to-brand-600 text-white shadow-2xl shadow-lavender-500/30 scale-[1.02] ring-2 ring-lavender-400'
-                    : 'bg-white border border-slate-200 shadow-sm'
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-peach-400 to-peach-500 text-white text-xs font-bold rounded-full shadow-lg">
-                    MAIS POPULAR
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <h3 className={`font-serif text-xl font-bold mb-1 ${plan.popular ? 'text-white' : 'text-slate-800'}`}>
-                    {plan.name}
-                  </h3>
-                  <p className={`text-sm ${plan.popular ? 'text-lavender-100' : 'text-slate-500'}`}>
-                    {plan.desc}
-                  </p>
-                </div>
-
-                <div className="mb-6">
-                  <div className="flex items-baseline gap-2">
-                    <span className={`text-xs line-through ${plan.popular ? 'text-lavender-200' : 'text-slate-400'}`}>
-                      R${plan.originalPrice}
-                    </span>
-                    <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${plan.popular ? 'bg-white/20 text-white' : 'bg-mint-50 text-mint-600'}`}>
-                      -{Math.round((1 - parseInt(plan.price) / parseInt(plan.originalPrice)) * 100)}%
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-1 mt-1">
-                    <span className={`text-sm ${plan.popular ? 'text-lavender-200' : 'text-slate-500'}`}>R$</span>
-                    <span className={`text-5xl font-bold ${plan.popular ? 'text-white' : 'text-slate-900'}`}>
-                      {plan.price}
-                    </span>
-                  </div>
-                  <p className={`text-xs mt-1 ${plan.popular ? 'text-lavender-200' : 'text-slate-400'}`}>
-                    Pagamento único · Acesso imediato
-                  </p>
-                </div>
-
-                <div className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((feature, j) => (
-                    <div key={j} className="flex items-start gap-2">
-                      <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-0.5 ${plan.popular ? 'text-lavender-200' : 'text-mint-500'}`} />
-                      <span className={`text-sm ${plan.popular ? 'text-lavender-50' : 'text-slate-600'}`}>{feature}</span>
-                    </div>
-                  ))}
-                  {plan.excluded.map((feature, j) => (
-                    <div key={j} className="flex items-start gap-2 opacity-40">
-                      <X className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm line-through">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="#cta"
-                  className={`btn-shine inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold transition-all hover:scale-105 ${
-                    plan.popular
-                      ? 'bg-white text-lavender-700 shadow-lg hover:shadow-xl'
-                      : 'bg-gradient-to-r from-lavender-600 to-brand-600 text-white shadow-lg shadow-lavender-500/20 hover:shadow-lavender-500/40'
-                  }`}
-                >
-                  Quero este plano
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+        <Reveal stagger={1}>
+          <div className="max-w-lg mx-auto">
+            <div className="card-hover relative rounded-3xl p-8 sm:p-10 flex flex-col bg-gradient-to-br from-lavender-600 to-brand-600 text-white shadow-2xl shadow-lavender-500/30 ring-2 ring-lavender-400/40">
+              {/* Badge */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 bg-gradient-to-r from-peach-400 to-peach-500 text-white text-xs font-bold rounded-full shadow-lg">
+                OFERTA ESPECIAL
               </div>
-            </Reveal>
-          ))}
-        </div>
+
+              {/* Title */}
+              <div className="mb-6 text-center">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-2 text-white">
+                  Guia Completo do Sono do Bebê
+                </h3>
+              </div>
+
+              {/* Price */}
+              <div className="mb-8 text-center">
+                <div className="flex items-baseline justify-center gap-2 mb-2">
+                  <span className="text-sm line-through text-lavender-200">R$ 47</span>
+                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/20 text-white">
+                    -62%
+                  </span>
+                </div>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-lg text-lavender-200">R$</span>
+                  <span className="text-6xl sm:text-7xl font-bold text-white leading-none">17,90</span>
+                </div>
+                <p className="text-sm mt-3 text-lavender-100">
+                  Pagamento único · Acesso imediato
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="space-y-3 mb-8">
+                {features.map((feature, j) => (
+                  <div key={j} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5 text-lavender-200" />
+                    <span className="text-sm sm:text-base text-lavender-50">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href="#cta"
+                className="btn-shine inline-flex items-center justify-center gap-2 w-full py-4 rounded-full font-bold text-lg bg-white text-lavender-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              >
+                Quero o Guia Agora
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </Reveal>
 
         {/* Guarantee */}
-        <Reveal stagger={4}>
+        <Reveal stagger={3}>
           <div className="mt-12 text-center">
             <div className="inline-flex items-center gap-3 glass rounded-2xl px-6 py-4 shadow-sm">
               <div className="w-12 h-12 rounded-full bg-mint-50 flex items-center justify-center flex-shrink-0">
                 <Shield className="w-6 h-6 text-mint-500" />
               </div>
               <div className="text-left">
-                <p className="font-semibold text-slate-800 text-sm">Garantia de Satisfação</p>
+                <p className="font-semibold text-slate-800 text-sm">Garantia de 7 dias</p>
                 <p className="text-xs text-slate-500">Se não amar o conteúdo, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
               </div>
             </div>
