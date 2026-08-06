@@ -755,7 +755,7 @@ function Pricing() {
               {/* Title */}
               <div className="mb-6 text-center">
                 <h3 className="font-serif text-2xl sm:text-3xl font-bold mb-2 text-white">
-                  Guia Completo do Sono do Bebê
+                  Tenha noites tranquilas com seu bebê
                 </h3>
               </div>
 
@@ -791,7 +791,7 @@ function Pricing() {
                 href="#cta"
                 className="btn-shine inline-flex items-center justify-center gap-2 w-full py-4 rounded-full font-bold text-lg bg-white text-lavender-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
               >
-                Quero o Guia Agora
+                Quero Acesso Imediato
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
