@@ -788,7 +788,9 @@ function Pricing() {
 
               {/* CTA Button */}
               <a
-                href="#cta"
+                href="https://app.monetizze.com.br/r/AWQ25818811" 
+                target="_blank"
+                rel="noopener noreferrer"  
                 className="btn-shine inline-flex items-center justify-center gap-2 w-full py-4 rounded-full font-bold text-lg bg-white text-lavender-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
               >
                 Quero Acesso Imediato
